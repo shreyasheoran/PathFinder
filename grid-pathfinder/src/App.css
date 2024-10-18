@@ -1,0 +1,151 @@
+body {
+  background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; 
+}
+
+.App {
+  display: flex;
+  width: 90vw;
+  height: 90vh;
+  padding: 2vh 2vw;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 20%;
+}
+
+h1 {
+  color: #fff;
+  font-size: 3rem;
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+  margin-bottom: 20px;
+}
+
+p {
+  color: #dcdcdc;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #0088cc, #00ff87);
+  transform: scale(1.1);
+  box-shadow: 0px 0px 30px rgba(0, 255, 255, 1);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(20, 2vw);
+  grid-template-rows: repeat(20, 2vw); 
+  gap: 0.5vw;
+  padding: 2vw;
+  background-color: #572f273d;
+  border-radius: 15px;
+  width: 58%;
+  height: auto;
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.8);
+}
+
+.grid-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #42373775;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.grid-cell:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.grid-cell.start,
+.grid-cell.end {
+  background-color: #ffd700;
+  border: 2px solid #ffcc00;
+  color: #000;
+  transform: scale(1.15);
+}
+
+.grid-cell.path-highlight {
+  background-color: #00ff87;
+  border: 2px solid #fff;
+  transform: scale(1.05);
+}
+
+.grid-cell.obstacle {
+  background-color: #ff0000;
+  border: 2px solid #fff;
+}
+
+.processing {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  color: #00ff87;
+  text-shadow: 0px 0px 10px #00ff87;
+}
+
+button {
+  background: linear-gradient(135deg, #00ff87, #0088cc);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 25px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin: 10px 0;
+  width: 100%;
+  box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.7);
+}
+
+button:hover:enabled {
+  background: linear-gradient(135deg, #0088cc, #00ff87);
+  transform: scale(1.1);
+  box-shadow: 0px 0px 30px rgba(0, 255, 255, 1);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+button.active {
+  background-color: #00ff87;
+  color: black;
+  transform: scale(1.1);
+}
+
+.algorithm-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.algorithm-buttons button {
+  width: 48%;
+}
+
+.grid-cell .small-text {
+  font-size: 0.8rem;
+  color: #000;
+  font-weight: bold;
+}
