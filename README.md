@@ -1,72 +1,45 @@
-Pathfinder App
+# PathFinder
 
-A 20x20 Grid Pathfinding Application Using DFS and Dijkstra Algorithms
-Welcome to Pathfinder, a web-based application that allows users to select start and end points on a 20x20 grid and calculate the shortest path between them using either the Depth-First Search (DFS) or Dijkstra algorithms. Users can also add obstacles to the grid to see how the algorithms navigate around them.
+Interactive grid pathfinding visualizer: a React frontend and a Go backend that compare two ways of finding a path on a 20×20 grid with obstacles.
 
-Features:
-Interactive Grid Layout: A 20x20 clickable grid where users can select the start point, end point, and toggle obstacles.
-DFS and Dijkstra Algorithms: Choose between two pathfinding algorithms, Depth-First Search (DFS) and Dijkstra, to calculate the shortest path.
-Path Highlighting: The path found between the start and end points is visually highlighted.
-Processing Time Display: The time taken for each algorithm to calculate the path is displayed after completion.
-Responsive UI: The app adjusts nicely to different screen sizes, providing a professional and modern look.
+- **Backtracking DFS** with branch-and-bound pruning and Manhattan-distance move ordering. It explores every viable route, so it returns a shortest path, but its cost grows quickly as the grid opens up.
+- **Dijkstra**: returns a shortest path without exploring every route, so it stays fast on open grids.
 
-Getting Started
-Prerequisites
-Before you begin, ensure you have the following installed:
+The app shows how long each algorithm takes, which makes the difference visible.
 
-Node.js (v14 or higher)
-npm (comes with Node.js)
-Go (if you want to run the backend locally)
-Installation
-Clone the repository to your local machine:
+## Features
 
-bash
-git clone https://github.com/shreyasheoran/pathfinder-app.git
-cd pathfinder-app
+- Click to set start and end points, then toggle obstacles
+- Run DFS or Dijkstra and see the path highlighted
+- Time taken shown for each run
+- Reset the grid
 
+## Tech
 
-Install dependencies for the React frontend:
+React (Create React App), Axios, Go (net/http), CSS
 
-bash
-npm install
-Start the React frontend:
+## Run locally
 
-bash
-npm start
+Backend (port 8080):
 
-
-Set up the Go backend:
-
-The Go backend is responsible for calculating the path using DFS or Dijkstra algorithms. You can run it locally.
-
-Run the backend locally:
-
+```bash
+cd go-backend
 go run main.go
+```
 
+Frontend (port 3000):
 
-Access the application:
+```bash
+cd grid-pathfinder
+npm install
+npm start
+```
 
-Open your browser and go to http://localhost:3000 to view the app.
-Usage
-Select start and end points:
+Open http://localhost:3000
 
-Click any cell on the grid to set the start point, and click another cell to set the end point.
-Add obstacles:
+## API
 
-After setting the start and end points, click other grid cells to toggle obstacles. These cells will be marked as obstacles for the algorithms to avoid.
-Choose an algorithm:
-
-Click Find Path Using DFS to use Depth-First Search or Find Path Using Dijkstra to calculate the shortest path using Dijkstra's algorithm.
-See the result:
-
-The path between the start and end points will be highlighted, and the time taken to calculate the path will be displayed below the buttons.
-Reset:
-
-Click the Reset Grid button to clear the grid and start over.
-
-
-Technologies Used
-React.js for the frontend
-Axios for making HTTP requests to the backend
-Go (Golang) for backend algorithms (DFS and Dijkstra)
-CSS for styling and responsive layout
+| Endpoint | Algorithm |
+|---|---|
+| `/find-path-dfs` | Backtracking DFS |
+| `/find-path-dijkstra` | Dijkstra |
